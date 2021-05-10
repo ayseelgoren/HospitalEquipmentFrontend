@@ -1,0 +1,40 @@
+<body>
+    <br>
+    <div class="text-center" *ngIf="dataStatus == false">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    </div>
+    <div class="container"  *ngIf="dataStatus == true">
+        <h2>Ekipman Listesi</h2>
+        <button class="btn btn-success" style="margin-left:90%" routerLink="/clinics/add">Klinik Ekle</button>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Klinik Adı</th>
+                 <th scope="col">Güncelle</th>
+                <th scope="col">Sil</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let clinic of clinics">
+                <td>{{ clinic.name }}</td>
+              
+              <td>
+                <button class="btn btn-primary" routerLink="/clinics/update/{{ clinic.id }}">
+                  Güncelle
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-danger"
+                  (click)="delete(clinic)"
+                >
+                  Sil
+                </button>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</body>>

@@ -1,0 +1,100 @@
+<body>
+
+<br />
+<div class="content" >
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><h3 class="title">Klinik Ekle</h3></div>
+      <div class="card-body">
+        <form [formGroup]="equipmentForm" *ngIf="equipmentForm">
+          <div class="mb-3">
+            <label for="clinic">Kullanılan Klinik</label>
+            <div class="form-group">
+                <select
+                class="form-select"
+                name="clinic"
+                id="clinic"
+                class="form-control"
+                aria-label="Default select example"
+                formControlName="clinicId"
+                >
+                <option *ngFor="let clinic of clinics" [value]="clinic.id">
+                  {{ clinic.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="name">Ekipman Adı</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="procurementDate">Temin Edilme Tarihi</label>
+            <div class="form-group">
+              <input
+                type="date"
+                id="procurementDate"
+                formControlName="procurementDate"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="piece">Adet Bilgisi</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="piece"
+                formControlName="piece"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="unitPrice">Birim Fiyatı</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="unitPrice"
+                formControlName="unitPrice"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="usageRate">Kullanım Oranı</label>
+            <div class="form-group">
+              <input
+                type="text"
+                id="usageRate"
+                formControlName="usageRate"
+                class="form-control"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-primary" style="margin-left:90%" (click)="add()">Ekle</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

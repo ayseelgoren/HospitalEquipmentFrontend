@@ -1,0 +1,52 @@
+<body>
+    <br>
+    <div class="text-center" *ngIf="dataStatus == false">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    </div>
+    <div class="container"  *ngIf="dataStatus == true">
+        <h2>Ekipman Listesi</h2>
+        <button class="btn btn-success" style="margin-left:88%" routerLink="/equipments/add">Ekipman Ekle</button>
+       
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Kullanılan Klinik</th>
+                <th scope="col">Ekipman Adı</th>
+                <th scope="col">Temin Edilme Tarihi</th>
+                <th scope="col">Adet Bilgisi</th>
+                <th scope="col">Birim Fiyatı</th>
+                <th scope="col">Kullanım Oranı</th>
+                <th scope="col">Güncelle</th>
+                <th scope="col">Sil</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let equipment of equipments"
+              >
+                <td>{{ equipment.clinicId }}</td>
+                <td>{{ equipment.name }}</td>
+                <td>{{ equipment.procurementDate }}</td>
+                <td>{{ equipment.piece }}</td>
+                <td>{{ equipment.unitPrice }}</td>
+                <td>{{ equipment.usageRate }}</td>
+                <td>
+                  <button class="btn btn-primary" routerLink="/equipments/update/{{ equipment.id }}">
+                    Güncelle
+                  </button>
+                </td>
+                <td>
+                  <button
+                    class="btn btn-danger"
+                    (click)="delete(equipment)"
+                  >
+                    Sil
+                  </button>
+                </td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+</body>>
